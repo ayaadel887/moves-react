@@ -23,6 +23,11 @@ export default function Home() {
   }, []);
   let moveToDetails = (id) => {
     console.log(id, "id");
+    navigate({ pathname: "/details", search: `?id=${id}` });
+    //لو  عايزه تنافيجيت لحاجه ومعاها باراميتر
+    // ادي النافيجيت
+    // اوبجيكتobject
+    //object take two things
   };
   return (
     <>
