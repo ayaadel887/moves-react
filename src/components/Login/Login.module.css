@@ -1,0 +1,9 @@
+.button {
+  transition-duration: 0.4s;
+  color: #faf3e3 !important;
+}
+
+.button:hover {
+  background-color: #0d352f !important; /* Green */
+  color: #fff9ec !important;
+}
