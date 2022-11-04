@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+
 import { createContext } from "react";
 
 export let MediaContext = createContext([]);
@@ -29,8 +29,7 @@ export let MediaContextProvider = (props) => {
       value={{ trendingMoves, trendingTVShowes, trendingPeople }}
     >
       {props.children}
-      {console.log(props, "hi from contxt")}
-      {console.log(props.children)}
+      {console.log(props.children, "hi from contxt")}
     </MediaContext.Provider>
   );
 };
