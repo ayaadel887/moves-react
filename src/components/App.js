@@ -51,17 +51,6 @@ function App() {
             <Route element={<ProtectedRout loginData={loginData} />}>
               <Route path="home" element={<Home />} />
 
-              {/*  -------------------------------------------
- 
-              <Route path="home" element={<Home />} />
-              -------------------------------------------
-            */}
-
-              {/* <Fragment>
-              <MediaContextProvider>
-              <Route path="home" element={<Home />} />
-              </MediaContextProvider>
-            </Fragment> */}
               <Route path="/" element={<Home />} />
               <Route path="moves" element={<Moves />} />
               <Route path="about" element={<About />} />
@@ -74,6 +63,12 @@ function App() {
             <Route path="*" element={<Notfound />} />
           </Routes>
         </MediaContextProvider>
+
+        {/* <Routes>
+        <Route element={<ProtectedRout loginData={loginData} />}>
+              <Route path="Register" element={<Register />} />
+              </Route>
+          </Routes> */}
       </div>
     </>
   );

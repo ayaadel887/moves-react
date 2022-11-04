@@ -1,20 +1,12 @@
-import React from "react";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { MediaContext } from "../mediaContext/MediaContext";
+//------style-------
 import style from "./Moves.module.css";
-export default function Moves() {
-  let [trendingMoves, settrendingMoves] = useState([]);
-  let baseIMGEURL = "https://image.tmdb.org/t/p/original";
-  let handelGetTrendingItems = async (mediatype, callbackSetFunc) => {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${mediatype}/day?api_key=a073c404739d2a76c90fb6aac68b40f6`
-    );
 
-    callbackSetFunc(data.results);
-  };
-  useEffect(() => {
-    handelGetTrendingItems("movie", settrendingMoves);
-  }, []);
+export default function Moves() {
+  let { trendingMoves } = useContext(MediaContext);
+  let baseIMGEURL = "https://image.tmdb.org/t/p/original";
+
   return (
     <>
       <div className="row">

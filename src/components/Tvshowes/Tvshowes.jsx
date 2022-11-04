@@ -1,19 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./People.module.css";
 const Tvshowes = () => {
-  let [trendingPeople, settrendingPeople] = useState([]);
+  let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
-  let handelGetTrendingItems = async (mediatype, callbackSetFunc) => {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${mediatype}/day?api_key=a073c404739d2a76c90fb6aac68b40f6`
-    );
 
-    callbackSetFunc(data.results);
-  };
-  useEffect(() => {
-    handelGetTrendingItems("person", settrendingPeople);
-  }, []);
   return (
     <>
       <div className="row">

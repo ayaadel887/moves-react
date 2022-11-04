@@ -1,26 +1,17 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./Home.module.css";
 
 export default function Home() {
-  let [trendingMoves, settrendingMoves] = useState([]);
-  let [trendingTVShowes, settrendingTVShowes] = useState([]);
-  let [trendingPeople, settrendingPeople] = useState([]);
+  let { trendingMoves } = useContext(MediaContext);
+  let { trendingTVShowes } = useContext(MediaContext);
+  let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
-  let handelGetTrendingItems = async (mediatype, callbackSetFunc) => {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${mediatype}/day?api_key=a073c404739d2a76c90fb6aac68b40f6`
-    );
 
-    callbackSetFunc(data.results);
-  };
   let navigate = useNavigate();
-  useEffect(() => {
-    handelGetTrendingItems("movie", settrendingMoves);
-    handelGetTrendingItems("tv", settrendingTVShowes);
-    handelGetTrendingItems("person", settrendingPeople);
-  }, []);
+
   let moveToDetails = (id) => {
     console.log(id, "id");
     navigate({ pathname: "/details", search: `?id=${id}` });
