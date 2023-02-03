@@ -61,55 +61,105 @@ export default function Login({ getuserData }) {
       email: Joi.string()
         .required()
         .email({ tlds: { allow: ["com", "net"] } }),
-      Password: Joi.string().required().pattern(new RegExp("^[a-z][0-9]{3}$")),
+      Password: Joi.string().required(),
+      //  Password: Joi.string().required().pattern(new RegExp("^[a-z][0-9]{3}$")),
     });
     return schemaVarName.validate(user, { abortEarly: false });
   };
   //-----------------------redarin-----------------------------
   return (
     <>
-      <div className="w-75 m-outo">
-        <h1 className="my-3">Login Form</h1>
+      <div className={style.container}>
+        <div className={style.cardcontainer}>
+          <h1 className={style.formtitle}>Sign In</h1>
 
-        {errorList.map((er, index) => (
-          <div key={index} className="alert alert-danger p-1">
-            {er.message}
-          </div>
-        ))}
+          {errorList.map((er, index) => (
+            <div key={index} className="alert alert-danger p-1">
+              {er.message}
+            </div>
+          ))}
 
-        <form onSubmit={submitFormData}>
-          <div className="inputgroup my-2">
-            <label htmlFor="email">Email:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="text"
-              className="form-control"
-              name="email"
-            />
-          </div>
-          <div className="inputgroup my-2">
-            <label htmlFor="Password">Password:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="Password"
-              className="form-control"
-              name="Password"
-            />
-          </div>
-          <button
-            className={`btn float-end ${style.button}`}
-            style={{ backgroundColor: "#125b50" }}
-            type="submit"
-          >
-            {loading ? (
-              <div className="spinner-border text-primary" role="status"></div>
-            ) : (
-              "Login"
-            )}
-          </button>
-          <div className="clearfix">{/*msh sha8ala */}</div>
-        </form>
+          <form onSubmit={submitFormData}>
+            <div>
+              <input
+                onChange={handelGetFormData}
+                typeof="text"
+                className={style.forminput}
+                name="email"
+                placeholder="Email"
+              />
+            </div>
+            <div>
+              <input
+                onChange={handelGetFormData}
+                typeof="Password"
+                className={style.forminput}
+                name="Password"
+                placeholder="Password"
+              />
+            </div>
+            <button
+              className={style.button}
+              style={{ backgroundColor: "#125b50" }}
+              type="submit"
+            >
+              {loading ? (
+                <div
+                  className="spinner-border text-primary"
+                  role="status"
+                ></div>
+              ) : (
+                "Login"
+              )}
+            </button>
+            <div className="clearfix">{/*msh sha8ala */}</div>
+          </form>
+        </div>
       </div>
     </>
   );
+}
+{
+  /*# <div className="w-75 m-outo">
+        #<h1 className="my-3">Login Form</h1>
+#
+        #{errorList.map((er, index) => (
+        #  <div key={index} className="alert alert-danger p-1">
+        #    {er.message}
+        #  </div>
+        #))}
+#
+        #<form onSubmit={submitFormData}>
+        #  <div className="inputgroup my-2">
+        #    <label htmlFor="email">Email:</label>
+        #    <input
+        #      onChange={handelGetFormData}
+        #      typeof="text"
+        #      className="form-control"
+        #      name="email"
+        #    />
+        #  </div>
+        #  <div className="inputgroup my-2">
+        #    <label htmlFor="Password">Password:</label>
+        #    <input
+        #      onChange={handelGetFormData}
+        #      typeof="Password"
+        #      className="form-control"
+        #      name="Password"
+        #    />
+        #  </div>
+        #  <button
+        #    className={`btn float-end ${style.button}`}
+        #    style={{ backgroundColor: "#125b50" }}
+        #    type="submit"
+        #  >
+        #    {loading ? (
+        #      <div className="spinner-border text-primary" role="status"></div>
+        #    ) : (
+        #      "Login"
+        #    )}
+        #  </button>
+        #  <div className="clearfix">{/*msh sha8ala--- *}</div>
+        #</form>
+      #</div> */
 }

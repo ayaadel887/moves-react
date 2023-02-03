@@ -9,7 +9,7 @@ export default function Navbar({ loginData, handelLogOut }) {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg ${style.navbar}`}
+      className={`navbar fixed-top navbar-expand-lg ${style.navbar}`}
       style={{ backgroundColor: "#125B50" }}
     >
       <div className="container-fluid">

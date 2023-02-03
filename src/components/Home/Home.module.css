@@ -2,5 +2,8 @@
   height: 1px;
   border: 1px solid #a8a8a83d;
 }
-
+.movititle {
+  text-align: center;
+  font-weight: 1000;
+}
 /* #a8a8a83d */

@@ -45,7 +45,7 @@ export default function Home() {
                 alt="movie"
                 src={baseIMGEURL + move.poster_path}
               />
-              <h5>{move.title}</h5>
+              <h5 className={style.movititle}>{move.title}</h5>
             </div>
           </div>
         ))}

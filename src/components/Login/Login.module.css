@@ -1,9 +1,85 @@
+.container {
+  margin-top: 20px;
+  text-align: center;
+
+  height: 500px;
+  display: flex;
+}
+
+.cardcontainer {
+  background-color: #fff;
+
+  border-radius: 2%;
+  text-align: center;
+  margin: auto;
+  width: 364px;
+  height: 50%;
+  box-shadow: 0px 0px 2px #bdbdbd;
+}
+.formtitle {
+  font-weight: 600;
+}
+.forminput {
+  width: 300px;
+  margin: 6px;
+  border-radius: 4%;
+}
 .button {
+  appearance: none;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+  width: 300px;
   transition-duration: 0.4s;
-  color: #faf3e3 !important;
+  box-sizing: border-box;
+  color: #fff !important;
+  margin-top: 20px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
 .button:hover {
-  background-color: #0d352f !important; /* Green */
+  background-color: #0d352f !important;
   color: #fff9ec !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 0.35s;
+  box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+}
+
+.button:active {
+  transform: translateY(2px);
+  transition-duration: 0.35s;
+}
+
+@media only screen and (max-width: 600px) {
+  .cardcontainer {
+    width: 200px;
+  }
+  .forminput {
+    width: 150px;
+  }
+  .button {
+    width: 150px;
+  }
 }
