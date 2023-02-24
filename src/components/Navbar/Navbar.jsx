@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
-import { FaFacebook, FaYoutube } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
 
 export default function Navbar({ loginData, handelLogOut }) {
   console.log(loginData, "loginData");
 
   return (
     <nav
-      className={`navbar fixed-top navbar-expand-lg ${style.navbar}`}
-      style={{ backgroundColor: "#125B50" }}
+      className={`navbar navbar-expand-lg ${style.navbar}`}
+      style={{ backgroundColor: "#7D053F" }}
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="home">
@@ -56,9 +54,6 @@ export default function Navbar({ loginData, handelLogOut }) {
               ) : (
                 ""
               )}
-              <FaFacebook />
-              <AiFillInstagram className="mx-2" />
-              <FaYoutube className="mr-2" />
             </div>
             {!loginData ? (
               <>

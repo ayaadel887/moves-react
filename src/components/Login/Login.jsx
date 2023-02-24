@@ -100,7 +100,7 @@ export default function Login({ getuserData }) {
             </div>
             <button
               className={style.button}
-              style={{ backgroundColor: "#125b50" }}
+              style={{ backgroundColor: "#7D053F" }}
               type="submit"
             >
               {loading ? (

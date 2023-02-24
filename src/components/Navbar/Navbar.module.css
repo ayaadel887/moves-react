@@ -4,4 +4,8 @@
 }
 .navbar {
   width: 100%;
+  margin-bottom: 50px;
+}
+li {
+  cursor: pointer;
 }

@@ -1,6 +1,6 @@
 body {
-  background-color: #faf5e4;
-  color: #125b50;
+  background-color: #263238;
+  color: azure;
   font-family: "segoe ui light";
 }
 /* #125B50
@@ -12,7 +12,6 @@ body {
 .navbar-expand-lg .navbar-nav .nav-link,
 .auth-linkes .nav-link {
   color: #faf5e4 !important;
-
   font-weight: bold;
 }
 .secondColor {

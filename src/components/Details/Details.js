@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { BsShareFill, BsFillHeartFill, BsChatLeftFill } from "react-icons/bs";
-
 import style from "./details.module.css";
 
 const Details = () => {
@@ -27,7 +26,9 @@ const Details = () => {
        
 #     #  عندي مشكلتين هنا لما باجي اجيب نوع الفيلم من ال   الي فيها نوع الفيلم بيعمل اررور  ولما اسم الفيلم بيكون كبير سطرين الدنيا بتضدرب
 #حاجه تانيه  عايزه ابعت لل سي اس اس عنوان الصوره عشان يعملها background  كيف هذا
-#            <p className="type">
+#             فكرت يوم 4-2-2023
+#ان ممكن اعمل الباكجروند inline style fe el div nfsaha
+# <p className="type">
 #              lorem,fgtrv
 #              {/* <h4>
 #                {detailsData.genres[0].name},{detailsData.genres[1].name},

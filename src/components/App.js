@@ -16,6 +16,7 @@ import Tvshowes from "./Tvshowes/Tvshowes";
 import ProtectedRout from "./protectedRoutes/protectedRout";
 import Details from "./Details/Details";
 import { MediaContextProvider } from "./mediaContext/MediaContext";
+import Footer from "./Footer/Footer";
 
 //---------Css-------------------------------
 function App() {
@@ -49,9 +50,8 @@ function App() {
         <MediaContextProvider>
           <Routes>
             <Route element={<ProtectedRout loginData={loginData} />}>
-              <Route path="home" element={<Home />} />
-
               <Route path="/" element={<Home />} />
+              <Route path="home" element={<Home />} />
               <Route path="moves" element={<Moves />} />
               <Route path="about" element={<About />} />
               <Route path="people" element={<People />} />
@@ -70,6 +70,7 @@ function App() {
               </Route>
           </Routes> */}
       </div>
+      <Footer />
     </>
   );
 }

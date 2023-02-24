@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./Home.module.css";
 
 export default function Home() {
   let { trendingMoves } = useContext(MediaContext);
-  let { trendingTVShowes } = useContext(MediaContext);
-  let { trendingPeople } = useContext(MediaContext);
+  //let { trendingTVShowes } = useContext(MediaContext);
+  //let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
 
   let navigate = useNavigate();
@@ -23,12 +22,13 @@ export default function Home() {
   return (
     <>
       <div className="row">
-        <div className="col-md d-flex align-items-center">
+        <div className="col-md d-flex align-items-center ">
           <div className="w-100 ">
             <div className={`w-25 ${style.brdr} mb-3`}></div>
             <h2>Trending </h2>
             <h2>Moves</h2>
             <h2>to watch Now</h2>
+
             <p className="secondColor mb-3">Most watched movies by day</p>
             <div className={style.brdr}></div>
           </div>
@@ -37,20 +37,22 @@ export default function Home() {
           <div
             onClick={() => moveToDetails(move.id)}
             key={move.id}
-            className="col-md-2 my-3"
+            className="card"
+            style={{ width: "18rem" }}
+            // className={`col-md-2 my-3 ${style.moviecard}`}
           >
-            <div>
-              <img
-                className="w-100"
-                alt="movie"
-                src={baseIMGEURL + move.poster_path}
-              />
-              <h5 className={style.movititle}>{move.title}</h5>
+            <img
+              className="card-img-top"
+              alt="movie"
+              src={baseIMGEURL + move.poster_path}
+            />
+            <div className="card-body">
+              <h5 className={`${style.movititle}`}>{move.title}</h5>
             </div>
           </div>
         ))}
       </div>
-      <div className="row">
+      {/* <div className="row">
         <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
             <div className={`w-25 ${style.brdr} mb-3`}></div>
@@ -97,7 +99,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 }

@@ -4,6 +4,21 @@
 }
 .movititle {
   text-align: center;
+  color: black;
   font-weight: 1000;
 }
 /* #a8a8a83d */
+
+.moviecard {
+  width: 300px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.moviecard:hover {
+  box-shadow: 1px 1px 5px red;
+}
