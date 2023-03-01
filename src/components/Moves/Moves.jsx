@@ -21,14 +21,14 @@ export default function Moves() {
           </div>
         </div>
         {trendingMoves.map((move) => (
-          <div key={move.id} className="col-md-2 my-3">
+          <div key={move.id} className="card">
             <div>
               <img
                 className="w-100"
                 alt="movie"
                 src={baseIMGEURL + move.poster_path}
               />
-              <h5>{move.title}</h5>
+              <h5 className="movititle">{move.title}</h5>
             </div>
           </div>
         ))}

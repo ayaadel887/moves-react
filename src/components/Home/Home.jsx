@@ -21,7 +21,7 @@ export default function Home() {
   };
   return (
     <>
-      <div className="row">
+      <div className={`container {style.movesContainer}`}>
         <div className="col-md d-flex align-items-center ">
           <div className="w-100 ">
             <div className={`w-25 ${style.brdr} mb-3`}></div>
@@ -33,24 +33,25 @@ export default function Home() {
             <div className={style.brdr}></div>
           </div>
         </div>
-        {trendingMoves.map((move) => (
-          <div
-            onClick={() => moveToDetails(move.id)}
-            key={move.id}
-            className="card"
-            style={{ width: "18rem" }}
-            // className={`col-md-2 my-3 ${style.moviecard}`}
-          >
-            <img
-              className="card-img-top"
-              alt="movie"
-              src={baseIMGEURL + move.poster_path}
-            />
-            <div className="card-body">
-              <h5 className={`${style.movititle}`}>{move.title}</h5>
+        <div className="row">
+          {trendingMoves.map((move) => (
+            <div key={move.id} className="col">
+              <div
+                onClick={() => moveToDetails(move.id)}
+                className={style.card}
+
+                // className={`col-md-2 my-3 ${style.moviecard}`}
+              >
+                <div>
+                  <img alt="movie" src={baseIMGEURL + move.poster_path} />
+                </div>
+                <div>
+                  <h5>{move.title}</h5>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       {/* <div className="row">
         <div className="col-md d-flex align-items-center">

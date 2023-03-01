@@ -70,9 +70,9 @@ export default function Navbar({ loginData, handelLogOut }) {
               </>
             ) : (
               <li className="nav-item">
-                <a onClick={handelLogOut} className="nav-link">
+                <Link onClick={handelLogOut} className="nav-link">
                   logout
-                </a>
+                </Link>
                 {/* <Link onClick={handelLogOut} className="nav-link" to="login">
                   logout
                 </Link> 

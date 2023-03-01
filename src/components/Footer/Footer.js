@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <>
       <footer className="text-center ">
-        <div className="text-center p-3">
-          <p className="mr-5">© 2023 Copyright : aya adel</p>
+        <div className="p-3">
+          <p className="mr-5">© 2023 Copyright - aya adel</p>
           <FaFacebook
             /* redirect to external URL */
             onClick={() => window.location.replace("https://www.facebook.com")}
