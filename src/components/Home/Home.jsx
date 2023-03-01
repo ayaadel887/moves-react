@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./Home.module.css";
 
