@@ -1,9 +1,10 @@
 .card {
   width: 380px;
-  border: 2px dotted black;
+  border-radius: 2%;
   margin: 40px;
   padding-bottom: 10px;
-  box-shadow: 1px 1px 5px #888888;
+  background-color: #021067;
+  box-shadow: 0px 0px 5px #888888;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,9 +13,9 @@ img {
   height: 320px;
   width: 100%;
   margin-bottom: 20px;
+  border-radius: 2% 2% 0% 0%;
 }
 .card:hover {
-  border: 2px solid black;
   box-shadow: 1px 1px 2px #888888;
 }
 .card h5 {
@@ -22,9 +23,9 @@ img {
   font-size: 20px;
   text-align: center;
 }
-.btn {
+.DetailsBtn {
   color: aliceblue;
-  background-color: #c12267;
+  background-color: #5c74da;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.8px;
@@ -35,7 +36,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 2s;
+  transition: 0.36s;
 }
 
 .arrowicon {
@@ -45,10 +46,10 @@ img {
   line-height: 1;
   position: relative;
 }
-.btn:hover .arrowicon {
+.DetailsBtn:hover .arrowicon {
   left: 10px;
 }
-.btn:hover {
+.DetailsBtn:hover {
   width: 200px;
 }
 

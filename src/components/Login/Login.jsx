@@ -86,7 +86,7 @@ export default function Login({ getuserData }) {
                 typeof="text"
                 className={style.forminput}
                 name="email"
-                placeholder="Email"
+                placeholder=" Email"
               />
             </div>
             <div>
@@ -95,14 +95,10 @@ export default function Login({ getuserData }) {
                 typeof="Password"
                 className={style.forminput}
                 name="Password"
-                placeholder="Password"
+                placeholder=" Password"
               />
             </div>
-            <button
-              className={style.button}
-              style={{ backgroundColor: "#7D053F" }}
-              type="submit"
-            >
+            <button className={style.button} type="submit">
               {loading ? (
                 <div
                   className="spinner-border text-primary"

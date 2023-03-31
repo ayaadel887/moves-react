@@ -7,8 +7,7 @@
 }
 
 .cardcontainer {
-  background-color: #fff;
-
+  background-color: #020e5a;
   border-radius: 2%;
   text-align: center;
   margin: auto;
@@ -21,8 +20,12 @@
 }
 .forminput {
   width: 300px;
+  height: 30px;
   margin: 6px;
-  border-radius: 4%;
+  border: 1px solid #c5c5cd;
+  border-radius: 2%;
+  background-color: #020e5a;
+  color-scheme: dark;
 }
 .button {
   appearance: none;
@@ -56,10 +59,11 @@
   touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
+  background-color: #5c74da;
 }
 
 .button:hover {
-  background-color: #c12267 !important;
+  background-color: #6078e2 !important;
   color: #fff9ec !important;
   opacity: 1;
   transform: translateY(0);

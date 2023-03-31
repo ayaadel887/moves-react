@@ -24,7 +24,10 @@ const CustomCard = ({ title, description, imgurl, button, id }) => {
         </div>
 
         {button && (
-          <button className={style.btn} onClick={() => moveToDetails(id)}>
+          <button
+            className={style.DetailsBtn}
+            onClick={() => moveToDetails(id)}
+          >
             Details
             <BsArrowRightCircle className={style.arrowicon} size={25} />
           </button>

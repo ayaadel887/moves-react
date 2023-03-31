@@ -1,7 +1,18 @@
-import React, { useContext } from "react";
+// import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+// import required modules
+import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper";
 
 import { MediaContext } from "../mediaContext/MediaContext";
-
 import style from "./Home.module.css";
 import CustomCard from "../customcard/CustomCard";
 
@@ -14,31 +25,65 @@ export default function Home() {
   console.log({ trendingMoves });
   return (
     <>
-      <div className={`container {style.movesContainer}`}>
-        <div className="col-md d-flex align-items-center ">
+      <div className={style.swipcont}>
+        <Swiper
+          slidesPerView={1}
+          centeredSlides={false}
+          slidesPerGroupSkip={1}
+          grabCursor={true}
+          keyboard={{
+            enabled: true,
+          }}
+          breakpoints={{
+            769: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+            },
+          }}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          className="mySwiper"
+        >
+          {trendingMoves.map((move) => (
+            <SwiperSlide>
+              <CustomCard
+                key={move.id}
+                title={move.title}
+                description={move.overview}
+                imgurl={baseIMGEURL + move.poster_path}
+                button={true}
+                id={move.id}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* <div className="row">
+        <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
             <div className={`w-25 ${style.brdr} mb-3`}></div>
             <h2>Trending </h2>
             <h2>Moves</h2>
             <h2>to watch Now</h2>
-
             <p className="secondColor mb-3">Most watched movies by day</p>
             <div className={style.brdr}></div>
           </div>
         </div>
-        <div className="row">
-          {trendingMoves.map((move) => (
-            <CustomCard
-              key={move.id}
-              title={move.title}
-              description={move.overview}
-              imgurl={baseIMGEURL + move.poster_path}
-              button={true}
-              id={move.id}
-            />
-          ))}
-        </div>
-      </div>
+        {trendingMoves.map((move) => (
+          <CustomCard
+            key={move.id}
+            title={move.title}
+            description={move.overview}
+            imgurl={baseIMGEURL + move.poster_path}
+            button={true}
+            id={move.id}
+          />
+        ))}
+      </div> */}
+      {/* {-------------------------------------} */}
       {/* <div className="row">
         <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
