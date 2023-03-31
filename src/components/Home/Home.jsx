@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { MediaContext } from "../mediaContext/MediaContext";
+
 import style from "./Home.module.css";
+import CustomCard from "../customcard/CustomCard";
 
 export default function Home() {
   let { trendingMoves } = useContext(MediaContext);
@@ -10,16 +11,7 @@ export default function Home() {
   //let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
 
-  let navigate = useNavigate();
-
-  let moveToDetails = (id) => {
-    console.log(id, "id");
-    navigate({ pathname: "/details", search: `?id=${id}` });
-    //لو  عايزه تنافيجيت لحاجه ومعاها باراميتر
-    // ادي النافيجيت
-    // اوبجيكتobject
-    //object take two things
-  };
+  console.log({ trendingMoves });
   return (
     <>
       <div className={`container {style.movesContainer}`}>
@@ -36,21 +28,14 @@ export default function Home() {
         </div>
         <div className="row">
           {trendingMoves.map((move) => (
-            <div key={move.id} className="col">
-              <div
-                onClick={() => moveToDetails(move.id)}
-                className={style.card}
-
-                // className={`col-md-2 my-3 ${style.moviecard}`}
-              >
-                <div>
-                  <img alt="movie" src={baseIMGEURL + move.poster_path} />
-                </div>
-                <div>
-                  <h5>{move.title}</h5>
-                </div>
-              </div>
-            </div>
+            <CustomCard
+              key={move.id}
+              title={move.title}
+              description={move.overview}
+              imgurl={baseIMGEURL + move.poster_path}
+              button={true}
+              id={move.id}
+            />
           ))}
         </div>
       </div>

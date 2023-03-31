@@ -28,6 +28,12 @@ const Details = () => {
 #حاجه تانيه  عايزه ابعت لل سي اس اس عنوان الصوره عشان يعملها background  كيف هذا
 #             فكرت يوم 4-2-2023
 #ان ممكن اعمل الباكجروند inline style fe el div nfsaha
+ style={{
+          backgroundImage: `url(${hcbgImage})`,
+          backgroundSize: "cover",
+          height: "100vh",
+          color: "#f5f5f5"
+        }}
 # <p className="type">
 #              lorem,fgtrv
 #              {/* <h4>
@@ -67,7 +73,12 @@ const Details = () => {
             </ul>
           </div>
         </div>
-        <div className={`${style.blur_back} ${style.ave_back}`}></div>
+        <div
+          style={{
+            backgroundImage: `url(${baseIMGEURL}${detailsData.backdrop_path})`,
+          }}
+          className={`${style.blur_back} `}
+        ></div>
       </div>
     </>
   );

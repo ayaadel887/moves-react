@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import CustomCard from "../customcard/CustomCard";
 import { MediaContext } from "../mediaContext/MediaContext";
 //------style-------
 import style from "./Moves.module.css";
@@ -21,16 +22,14 @@ export default function Moves() {
           </div>
         </div>
         {trendingMoves.map((move) => (
-          <div key={move.id} className="card">
-            <div>
-              <img
-                className="w-100"
-                alt="movie"
-                src={baseIMGEURL + move.poster_path}
-              />
-              <h5 className="movititle">{move.title}</h5>
-            </div>
-          </div>
+          <CustomCard
+            key={move.id}
+            title={move.title}
+            description={move.overview}
+            imgurl={baseIMGEURL + move.poster_path}
+            button={true}
+            id={move.id}
+          />
         ))}
       </div>
     </>
