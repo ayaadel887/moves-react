@@ -1,6 +1,5 @@
-import axios from "axios";
 import React, { useContext } from "react";
-import { MediaContext } from "../mediaContext/MediaContext";
+import { MediaContext } from "../../components/mediaContext/MediaContext";
 import style from "./People.module.css";
 export default function People() {
   let { trendingPeople } = useContext(MediaContext);

@@ -7,11 +7,22 @@
 }
 
 .cardcontainer {
-  background-color: #020e5a;
+  /* background-color: #020e5a;
   border-radius: 2%;
   text-align: center;
   margin: auto;
   width: 364px;
+  height: 50%;
+  box-shadow: 0px 0px 2px #bdbdbd; */
+  /* backdrop-filter: blur(10px); */ /* 
+  لما بنعمل اتنين لير مثلا بيقولنا هنشوف الي ورانا ازاي متلوبه متشوشه كدا*/
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  text-align: center;
+  margin: auto;
+  width: 400px;
   height: 50%;
   box-shadow: 0px 0px 2px #bdbdbd;
 }

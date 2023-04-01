@@ -1,8 +1,6 @@
-import axios from "axios";
 import React, { useContext } from "react";
-import { MediaContext } from "../mediaContext/MediaContext";
-import style from "./People.module.css";
-import CustomCard from "../customcard/CustomCard";
+import { MediaContext } from "../../components/mediaContext/MediaContext";
+import CustomCard from "./../../components/customcard/CustomCard";
 const Tvshowes = () => {
   let { trendingTVShowes } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
@@ -12,13 +10,13 @@ const Tvshowes = () => {
       <div className="row">
         <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
-            <div className={`w-25 ${style.brdr} mb-3`}></div>
+            <div className={`w-25 brdr mb-3`}></div>
             <h2>Trending </h2>
             <h2>trendingTVShowes</h2>
             <p className="secondColor mb-3">
               Most Trending trendingTVShowes by day
             </p>
-            <div className={style.brdr}></div>
+            <div className="brdr"></div>
           </div>
         </div>
 

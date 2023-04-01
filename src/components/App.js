@@ -6,13 +6,13 @@ import jwtDecode from "jwt-decode";
 //-----------myFiles--------------------
 import About from "./About/About";
 import Home from "./Home/Home";
-import Login from "./Login/Login";
 import Moves from "./Moves/Moves";
 import Navbar from "./Navbar/Navbar";
 import Notfound from "./Notfound/Notfound";
-import People from "./People/People";
+import People from "../Pages//People/People";
 import Register from "../Pages/Register/Register";
-import Tvshowes from "./Tvshowes/Tvshowes";
+import Tvshowes from "../Pages/Tvshowes/Tvshowes";
+import Login from "../Pages/Login/Login";
 import ProtectedRout from "./protectedRoutes/protectedRout";
 import Details from "./Details/Details";
 import { MediaContextProvider } from "./mediaContext/MediaContext";

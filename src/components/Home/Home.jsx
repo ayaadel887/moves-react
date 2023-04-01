@@ -1,5 +1,5 @@
-// import React, { useContext } from "react";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext } from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,14 +18,24 @@ import CustomCard from "../customcard/CustomCard";
 
 export default function Home() {
   let { trendingMoves } = useContext(MediaContext);
-  //let { trendingTVShowes } = useContext(MediaContext);
+  let { trendingTVShowes } = useContext(MediaContext);
   //let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
 
   console.log({ trendingMoves });
   return (
     <>
-      <div className={style.swipcont}>
+      <div className="row">
+        <div className="col-md d-flex align-items-center">
+          <div className="w-100 ">
+            <div className={`w-25 ${style.brdr} mb-3`}></div>
+            <h2>Trending </h2>
+            <h2>Moves</h2>
+            <h2>to watch Now</h2>
+            <p className="secondColor mb-3">Most watched movies by day</p>
+            <div className={style.brdr}></div>
+          </div>
+        </div>
         <Swiper
           slidesPerView={1}
           centeredSlides={false}
@@ -61,30 +71,8 @@ export default function Home() {
           ))}
         </Swiper>
       </div>
-      {/* <div className="row">
-        <div className="col-md d-flex align-items-center">
-          <div className="w-100 ">
-            <div className={`w-25 ${style.brdr} mb-3`}></div>
-            <h2>Trending </h2>
-            <h2>Moves</h2>
-            <h2>to watch Now</h2>
-            <p className="secondColor mb-3">Most watched movies by day</p>
-            <div className={style.brdr}></div>
-          </div>
-        </div>
-        {trendingMoves.map((move) => (
-          <CustomCard
-            key={move.id}
-            title={move.title}
-            description={move.overview}
-            imgurl={baseIMGEURL + move.poster_path}
-            button={true}
-            id={move.id}
-          />
-        ))}
-      </div> */}
       {/* {-------------------------------------} */}
-      {/* <div className="row">
+      <div className="row">
         <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
             <div className={`w-25 ${style.brdr} mb-3`}></div>
@@ -96,18 +84,17 @@ export default function Home() {
           </div>
         </div>
         {trendingTVShowes.map((tv) => (
-          <div key={tv.id} className="col-md-2 my-3">
-            <div>
-              <img
-                className="w-100"
-                alt="tv's"
-                src={baseIMGEURL + tv.poster_path}
-              />
-              <h5>{tv.name}</h5>
-            </div>
-          </div>
+          <CustomCard
+            key={tv.id}
+            title={tv.name}
+            description={tv.overview}
+            imgurl={baseIMGEURL + tv.poster_path}
+            button={true}
+            id={tv.id}
+          />
         ))}
       </div>
+      {/*
       <div className="row">
         <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
@@ -131,7 +118,8 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>{" "}
+      */}
     </>
   );
 }
