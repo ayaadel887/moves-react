@@ -65,7 +65,7 @@ img {
   padding-inline: 4px;
   margin: 10px 0 20px;
 }
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .card {
     width: 300px;
     height: 390px;
@@ -104,4 +104,4 @@ img {
     padding-inline: 1px;
     margin: 6px 0 13px;
   }
-}
+} */
