@@ -1,10 +1,13 @@
 .card {
   width: 380px;
-  border-radius: 2%;
   margin: 40px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding-bottom: 10px;
-  background-color: #021067;
-  box-shadow: 0px 0px 5px #888888;
+  /* background-color: #021067; */
+  /* box-shadow: 0px 0px 5px #888888; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +16,7 @@ img {
   height: 320px;
   width: 100%;
   margin-bottom: 20px;
-  border-radius: 2% 2% 0% 0%;
+  border-radius: 10px 10px 0% 0%;
 }
 .card:hover {
   box-shadow: 1px 1px 2px #888888;
@@ -36,21 +39,21 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.36s;
+  transition: 2s;
 }
 
 .arrowicon {
-  transition: 2s;
+  transition: 0.8s;
   font-size: 25px;
   margin-left: 10px;
   line-height: 1;
   position: relative;
 }
 .DetailsBtn:hover .arrowicon {
-  left: 10px;
+  transform: translatex(2px);
 }
 .DetailsBtn:hover {
-  width: 200px;
+  transform: translatex(2px);
 }
 
 .description {
@@ -61,4 +64,44 @@ img {
   height: 70px;
   padding-inline: 4px;
   margin: 10px 0 20px;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 300px;
+    height: 390px;
+    margin: 6px;
+    padding-bottom: 4px;
+  }
+  img {
+    height: 160px;
+    width: 100%;
+    margin-bottom: 6px;
+    border-radius: 10px 10px 0% 0%;
+  }
+
+  .card h5 {
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+  }
+  .DetailsBtn {
+    font-weight: 500;
+    font-size: 10px;
+    width: 100px;
+    height: 25px;
+  }
+
+  .arrowicon {
+    font-size: 5px;
+    margin-left: 4px;
+  }
+  .description {
+    font-size: 16px;
+    text-align: center;
+  }
+  .desc {
+    height: 15px;
+    padding-inline: 1px;
+    margin: 6px 0 13px;
+  }
 }

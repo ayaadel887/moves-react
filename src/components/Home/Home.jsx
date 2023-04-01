@@ -19,7 +19,7 @@ import CustomCard from "../customcard/CustomCard";
 export default function Home() {
   let { trendingMoves } = useContext(MediaContext);
   let { trendingTVShowes } = useContext(MediaContext);
-  //let { trendingPeople } = useContext(MediaContext);
+  let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
 
   console.log({ trendingMoves });
@@ -83,18 +83,42 @@ export default function Home() {
             <div className={style.brdr}></div>
           </div>
         </div>
-        {trendingTVShowes.map((tv) => (
-          <CustomCard
-            key={tv.id}
-            title={tv.name}
-            description={tv.overview}
-            imgurl={baseIMGEURL + tv.poster_path}
-            button={true}
-            id={tv.id}
-          />
-        ))}
+        <Swiper
+          slidesPerView={1}
+          centeredSlides={true}
+          slidesPerGroupSkip={1}
+          grabCursor={true}
+          keyboard={{
+            enabled: true,
+          }}
+          breakpoints={{
+            769: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+            },
+          }}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          className="mySwiper"
+        >
+          {trendingTVShowes.map((tv) => (
+            <SwiperSlide>
+              <CustomCard
+                key={tv.id}
+                title={tv.name}
+                description={tv.overview}
+                imgurl={baseIMGEURL + tv.poster_path}
+                button={true}
+                id={tv.id}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-      {/*
+
       <div className="row">
         <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
@@ -105,21 +129,45 @@ export default function Home() {
             <div className={style.brdr}></div>
           </div>
         </div>
-
-        {trendingPeople.map((person) => (
-          <div key={person.id} className="col-md-2 my-3">
-            <div>
-              <img
-                className="w-100"
-                alt="people"
-                src={baseIMGEURL + person.profile_path}
-              />
-              <h5>{person.name}</h5>
-            </div>
-          </div>
-        ))}
-      </div>{" "}
-      */}
+        <Swiper
+          slidesPerView={1}
+          centeredSlides={false}
+          slidesPerGroupSkip={1}
+          grabCursor={true}
+          keyboard={{
+            enabled: true,
+          }}
+          breakpoints={{
+            769: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+            },
+          }}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          className="mySwiper"
+        >
+          {trendingPeople.map((person) => (
+            <SwiperSlide>
+              <div key={person.id} className="col my-3">
+                <div>
+                  <img
+                    className="w-100"
+                    alt="people"
+                    src={baseIMGEURL + person.profile_path}
+                  />
+                  <h5 class="text-center font-weight-bold mb-5">
+                    {person.name}
+                  </h5>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }
