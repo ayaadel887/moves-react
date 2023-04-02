@@ -26,7 +26,9 @@ export default function People() {
                 alt="people"
                 src={baseIMGEURL + person.profile_path}
               />
-              <h5>{person.name}</h5>
+              <h5 className="text-center font-weight-bold mb-5">
+                {person.name}
+              </h5>
             </div>
           </div>
         ))}

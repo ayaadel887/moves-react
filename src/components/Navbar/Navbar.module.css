@@ -1,11 +1,96 @@
-.socialmwdia {
-  color: #faf5e4 !important;
-  font-size: medium;
-}
-.navbar {
-  width: 100%;
-  margin-bottom: 50px;
-}
 li {
   cursor: pointer;
+}
+.divfloxosa {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: chocolate;
+}
+.navlogo {
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.ulLinks {
+  width: 40%;
+  display: flex;
+  margin-bottom: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.navlink {
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  opacity: 0.9;
+  text-align: center;
+}
+.navitem {
+  width: 100%;
+}
+.burgericon {
+  display: none;
+}
+
+/* .UserName {
+  display: inline-block;
+  position: absolute;
+  font-size: 21px;
+  font-weight: 700;
+  right: 80px;
+  top: 3px;
+} */
+.loginoutbox {
+  background-color: red;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: 700px) {
+  .divfloxosa {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .Navbar {
+    margin-bottom: 170px;
+  }
+  .navitem {
+    width: 100%;
+    height: 40px;
+  }
+  /* .ulLinks {
+    font-size: 16px;
+    text-decoration: none;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+  } */
+  .ulLinks {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .burgericon {
+    display: block;
+    font-size: 26px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+  }
+  .desapear {
+    display: none;
+  }
 }

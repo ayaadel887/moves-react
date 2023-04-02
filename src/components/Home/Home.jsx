@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -152,14 +151,14 @@ export default function Home() {
         >
           {trendingPeople.map((person) => (
             <SwiperSlide>
-              <div key={person.id} className="col my-3">
+              <div key={person.id} className="col my-3 mx-2">
                 <div>
                   <img
                     className="w-100"
                     alt="people"
                     src={baseIMGEURL + person.profile_path}
                   />
-                  <h5 class="text-center font-weight-bold mb-5">
+                  <h5 className="text-center font-weight-bold mb-5">
                     {person.name}
                   </h5>
                 </div>

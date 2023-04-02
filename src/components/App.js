@@ -68,7 +68,7 @@ function App() {
         <Route element={<ProtectedRout loginData={loginData} />}>
               <Route path="Register" element={<Register />} />
               </Route>
-          </Routes> */}
+  </Routes> */}
       </div>
       <Footer />
     </>

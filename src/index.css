@@ -4,7 +4,7 @@ body {
   font-family: "segoe ui light";
 }
 
-.navbar-brand,
+/* .navbar-brand,
 .navbar-expand-lg .navbar-nav .nav-link,
 .auth-linkes .nav-link {
   color: #faf5e4 !important;
@@ -12,7 +12,7 @@ body {
 }
 .nav-link:hover {
   opacity: 0.46;
-}
+} */
 .secondColor {
   color: #949cb0;
 }
