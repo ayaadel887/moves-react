@@ -1,18 +1,16 @@
 body {
-  background: #020e5a;
+  background: #0c141d;
   color: white;
   font-family: "segoe ui light";
 }
-
-/* .navbar-brand,
-.navbar-expand-lg .navbar-nav .nav-link,
-.auth-linkes .nav-link {
-  color: #faf5e4 !important;
-  font-weight: bold;
+a {
+  text-decoration: none;
+  color: #646c94;
 }
-.nav-link:hover {
-  opacity: 0.46;
-} */
+a:hover {
+  color: #fff9ec;
+}
+
 .secondColor {
   color: #949cb0;
 }

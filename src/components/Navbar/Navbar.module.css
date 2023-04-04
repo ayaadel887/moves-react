@@ -1,21 +1,23 @@
 li {
   cursor: pointer;
 }
+.Navbar {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  background-color: #182029;
+}
 .divfloxosa {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding: 7px 0 7px 0;
 }
-.Navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: chocolate;
-}
+
 .navlogo {
   font-weight: 700;
   font-size: 20px;
-  color: #ffffff;
+  color: #fff9ec;
   text-decoration: none;
   margin-left: 10px;
 }
@@ -28,35 +30,37 @@ li {
   text-align: center;
 }
 
+.desapear {
+  width: 40%;
+  display: flex;
+  margin-bottom: 0;
+  align-items: center;
+  /*  هنسال ماذا نفعل في حاله  اننا اخفينا اللنكات وبعدين كبرنا >_<*/
+}
 .navlink {
-  color: #ffffff;
+  color: #fff9ec;
   font-size: 16px;
   text-decoration: none;
+  font-weight: 700;
   position: relative;
   opacity: 0.9;
   text-align: center;
 }
-.navitem {
-  width: 100%;
-}
+
 .burgericon {
   display: none;
 }
 
-/* .UserName {
-  display: inline-block;
-  position: absolute;
-  font-size: 21px;
-  font-weight: 700;
-  right: 80px;
-  top: 3px;
-} */
 .loginoutbox {
-  background-color: red;
-  width: 100%;
+  width: 33%;
   display: flex;
   justify-content: flex-end;
 }
+
+.active {
+  color: #fff9ec;
+}
+/* isPending ? style.pending : isActive ? style.active : "" */
 @media (max-width: 700px) {
   .divfloxosa {
     flex-direction: column;
@@ -65,23 +69,16 @@ li {
   .Navbar {
     margin-bottom: 170px;
   }
-  .navitem {
-    width: 100%;
-    height: 40px;
-  }
-  /* .ulLinks {
-    font-size: 16px;
-    text-decoration: none;
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-  } */
   .ulLinks {
     width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 12px;
     margin-bottom: 12px;
+  }
+  .ulLinks li {
+    margin-bottom: 15px;
   }
   .burgericon {
     display: block;
@@ -92,5 +89,8 @@ li {
   }
   .desapear {
     display: none;
+  }
+  .loginoutbox {
+    width: 100%;
   }
 }

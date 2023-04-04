@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import style from "./Navbar.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 export default function Navbar({ loginData, handelLogOut }) {
@@ -10,36 +10,60 @@ export default function Navbar({ loginData, handelLogOut }) {
     <>
       <nav className={style.Navbar}>
         <div className={style.divfloxosa}>
-          <Link className={style.navlogo} to="home">
-            Noxe
-          </Link>
+          <NavLink to="/home">Noxe</NavLink>
+
           {loginData ? (
             <>
               <ul className={click ? `${style.ulLinks}` : `${style.desapear}`}>
-                <li className={style.navitem}>
-                  <Link className={style.navlink} to="home">
+                <li className={style.navlink}>
+                  <NavLink
+                    to="/home"
+                    className={({ isActive, isPending }) =>
+                      isPending ? style.pending : isActive ? style.active : ""
+                    }
+                  >
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
-                <li className={style.navitem}>
-                  <Link className={style.navlink} to="About">
+                <li className={style.navlink}>
+                  <NavLink
+                    to="/About"
+                    className={({ isActive, isPending }) =>
+                      isPending ? style.pending : isActive ? style.active : ""
+                    }
+                  >
                     About
-                  </Link>
+                  </NavLink>
                 </li>
-                <li className={style.navitem}>
-                  <Link className={style.navlink} to="Tvshowes">
+                <li className={style.navlink}>
+                  <NavLink
+                    to="/Tvshowes"
+                    className={({ isActive, isPending }) =>
+                      isPending ? style.pending : isActive ? style.active : ""
+                    }
+                  >
                     Tvshowes
-                  </Link>
+                  </NavLink>
                 </li>
-                <li className={style.navitem}>
-                  <Link className={style.navlink} to="people">
+                <li className={style.navlink}>
+                  <NavLink
+                    to="/people"
+                    className={({ isActive, isPending }) =>
+                      isPending ? style.pending : isActive ? style.active : ""
+                    }
+                  >
                     people
-                  </Link>
+                  </NavLink>
                 </li>
-                <li className={style.navitem}>
-                  <Link className={style.navlink} to="moves">
+                <li className={style.navlink}>
+                  <NavLink
+                    to="moves"
+                    className={({ isActive, isPending }) =>
+                      isPending ? style.pending : isActive ? style.active : ""
+                    }
+                  >
                     moves
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
 
@@ -47,14 +71,6 @@ export default function Navbar({ loginData, handelLogOut }) {
                 className={style.burgericon}
                 onClick={handleClick}
               />
-
-              {/* {loginData ? (
-                <h5 className={style.UserName}>
-                  Hi Ya{" " + loginData.first_name + " "}
-                </h5>
-              ) : (
-                ""
-              )} */}
             </>
           ) : (
             " "
@@ -63,25 +79,35 @@ export default function Navbar({ loginData, handelLogOut }) {
             <ul className={style.ulLinks}>
               {!loginData ? (
                 <>
-                  <li className={style.navitem}>
-                    <Link className={style.navlink} to="Register">
+                  <li className={style.navlink}>
+                    <NavLink
+                      to="/Register"
+                      className={({ isActive, isPending }) =>
+                        isPending ? style.pending : isActive ? style.active : ""
+                      }
+                    >
                       Register
-                    </Link>
+                    </NavLink>
                   </li>
-                  <li className={style.navitem}>
-                    <Link className={style.navlink} to="login">
+                  <li>
+                    <NavLink
+                      to="/login"
+                      className={({ isActive, isPending }) =>
+                        isPending ? style.pending : isActive ? style.active : ""
+                      }
+                    >
                       login
-                    </Link>
+                    </NavLink>
                   </li>
                 </>
               ) : (
                 <>
-                  <li className={style.navitem}>
+                  <li>
                     <h5 className={style.navlink}>
                       Hi Ya{" " + loginData.first_name + " "}
                     </h5>
                   </li>
-                  <li className={style.navitem}>
+                  <li>
                     <Link onClick={handelLogOut} className={style.navlink}>
                       logout
                     </Link>
@@ -97,105 +123,9 @@ export default function Navbar({ loginData, handelLogOut }) {
 }
 
 {
-  /*  // const [isOpen, setisOpen] = useState(false);
-  // const changboolean = () => {
-  //   setisOpen(!isOpen);
-  //   console.log(isOpen);
-  // };
-  ------------------------
-   <>  <div className={style.Navbar}>
-        <span className={style.navlogo}>Noxe</span>
-        <div className={`${style.navitems} ${isOpen && "{style.open"}}`}>
-          <a href="/home">Home</a>
-          <a href="/about">About</a>
-          <a href="/service">Service</a>
-          <a href="/contact">Contact</a>
-        </div>
-        <GiHamburgerMenu
-          className={`${style.bar} ${isOpen && "open"}`}
-          onClick={() => changboolean()}
-        />
-      </div>
-
-</> */
-}
-{
   /*   -------------------------------------------
-  <>// import { GiHamburgerMenu } from "react-icons/gi";
-  export default function Navbar({ loginData, handelLogOut }) {
-      <nav className={style.Navbar}>
-        <Link className={style.navlogo} to="home">
-          Noxe
-        </Link>
-        {/* <GiHamburgerMenu
-            onClick={handelREsponsiveMenu}
-            className={style.responsiveIcon}
-          /> --/}
 
-          {loginData ? (
-            <ul className=" ">
-              <li className={style.navitem}>
-                <Link className={style.navlink} to="home"></Link>
-              </li>
-              <li className={style.navitem}>
-                <Link className={style.navlink} to="About">
-                  About
-                </Link>
-              </li>
-              <li className={style.navitem}>
-                <Link className={style.navlink} to="Tvshowes">
-                  Tvshowes
-                </Link>
-              </li>
-              <li className={style.navitem}>
-                <Link className={style.navlink} to="people">
-                  people
-                </Link>
-              </li>
-              <li className={style.navitem}>
-                <Link className={style.navlink} to="moves">
-                  moves
-                </Link>
-              </li>
-            </ul>
-          ) : (
-            " "
-          )}
-          <div className="" id="navbarColor01">
-            <ul className=" ">
-              <div className={``}>
-                {loginData ? (
-                  <h5 className="">Hi{" " + loginData.first_name + " "}</h5>
-                ) : (
-                  ""
-                )}
-              </div>
-              {!loginData ? (
-                <>
-                  <li className={style.navitem}>
-                    <Link className={style.navlink} to="Register">
-                      Register
-                    </Link>
-                  </li>
-                  <li className={style.navitem}>
-                    <Link className={style.navlink} to="login">
-                      login
-                    </Link>
-                  </li>
-                </>
-              ) : (
-                <li className={style.navitem}>
-                  <Link onClick={handelLogOut} className={style.navlink}>
-                    logout
-                  </Link>
-                  {/* <Link onClick={handelLogOut} className="nav-link" to="login">
-        logout
-      </Link> 
           what is the deffrent between use navigation and the to in the link why she choose to use use navigation --/}
-                </li>
-              )}
-            </ul>
-          </div>
-        </nav>
-      </> */
+                
+//*/
 }

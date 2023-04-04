@@ -27,15 +27,15 @@ img {
   text-align: center;
 }
 .DetailsBtn {
-  color: aliceblue;
+  width: 160px;
+  height: 55px;
   background-color: #5c74da;
+  color: aliceblue;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 0.8px;
   border-radius: 8px;
-  /* padding: 5px 20px 10px; */
-  width: 160px;
-  height: 55px;
+  margin-bottom: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
