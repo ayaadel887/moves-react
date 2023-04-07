@@ -14,4 +14,16 @@ const ProtectedRout = ({ loginData }) => {
 //<Route element={protectedRout} loginData={loginData}>
 //  هنحط هنا كل اللنكات الي عايزين نحميها
 // </Route>
+
+/**----------------------- */
+
+export const NonProtectedRout = ({ loginData }) => {
+  {
+    console.log(
+      loginData,
+      "hi am protected alreadylogin so don;t open login again"
+    );
+  }
+  return <>{loginData ? <Navigate to={"/home"} /> : <Outlet />}</>;
+};
 export default ProtectedRout;

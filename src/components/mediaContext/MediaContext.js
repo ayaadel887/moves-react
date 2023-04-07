@@ -1,7 +1,9 @@
 import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 
 import { createContext } from "react";
+import { Instance } from "../../Instance";
 
 export let MediaContext = createContext([]);
 
@@ -11,8 +13,8 @@ export let MediaContextProvider = (props) => {
   let [trendingPeople, settrendingPeople] = useState([]);
 
   let handelGetTrendingItems = async (mediatype, callbackSetFunc) => {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${mediatype}/day?api_key=a073c404739d2a76c90fb6aac68b40f6`
+    let { data } = await Instance.get(
+      `${mediatype}/day?api_key=a073c404739d2a76c90fb6aac68b40f6`
     );
 
     callbackSetFunc(data.results);

@@ -10,7 +10,9 @@ export default function Navbar({ loginData, handelLogOut }) {
     <>
       <nav className={style.Navbar}>
         <div className={style.divfloxosa}>
-          <NavLink to="/home">Noxe</NavLink>
+          <NavLink className={style.navlogo} to="/home">
+            Noxe
+          </NavLink>
 
           {loginData ? (
             <>

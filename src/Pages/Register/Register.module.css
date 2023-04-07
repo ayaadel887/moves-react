@@ -1,9 +1,94 @@
+.container {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+}
+
+.cardcontainer {
+  /* backdrop-filter: blur(10px); 
+  #لما بنعمل اتنين لير مثلا بيقولنا هنشوف الي ورانا ازاي متلونه متشوشه كدا*/
+  background-color: rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  text-align: center;
+  padding: 0 10px;
+  margin: auto;
+  width: 500px;
+}
+.formtitle {
+  margin-top: 10px;
+  color: #fff9ec;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 42px;
+}
+.forminput {
+  height: 40px;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  /* padding: 0 10px; */
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 300;
+  color-scheme: dark;
+}
+::placeholder {
+  color: #e5e5e5;
+}
+.errorAlert {
+  color: red;
+  text-align: start;
+  /* padding-left: 50px; */
+}
 .button {
+  width: 300px;
+  padding: 15px 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #fff9ec;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
   background-color: #5c74da;
+  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+  color-scheme: inherit;
   transition-duration: 0.4s;
 }
 
 .button:hover {
-  background-color: #6078e2;
+  background-color: #6078e2 !important;
   color: #fff9ec !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 0.35s;
+  box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
 }
+
+.button:active {
+  transform: translateY(1px);
+  transition-duration: 0.35s;
+}
+
+@media only screen and (max-width: 600px) {
+  .cardcontainer {
+    width: 200px;
+  }
+  .forminput {
+    width: 150px;
+  }
+  .button {
+    width: 150px;
+  }
+}
+/*  let [validationError, setvalidationError] = useState([]);
+  if (validationResulte.error) {
+      setvalidationError(validationResulte.error.details);
+      setLoading(false);
+      return false;
+    } else {
+      return true;
+    }    */

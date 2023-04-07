@@ -1,7 +1,11 @@
+.errorAlert {
+  color: red;
+  text-align: center;
+  margin-top: 4px;
+}
 .container {
   margin-top: 20px;
   text-align: center;
-  height: 500px;
   display: flex;
 }
 
@@ -23,6 +27,7 @@
   font-weight: 600;
   font-size: 32px;
   line-height: 42px;
+  color-scheme: normal;
 }
 .forminput {
   height: 40px;
@@ -30,7 +35,7 @@
   background-color: rgba(255, 255, 255, 0.07);
   border-radius: 3px;
   padding: 0 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 14px;
   font-weight: 300;
 }
@@ -41,6 +46,7 @@
   width: 300px;
   padding: 15px 0;
   margin-top: 30px;
+  margin-bottom: 20px;
   color: #fff9ec;
   font-size: 18px;
   font-weight: 600;

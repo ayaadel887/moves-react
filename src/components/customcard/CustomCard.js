@@ -15,7 +15,7 @@ const CustomCard = ({ title, description, imgurl, button, id }) => {
     //object take two things
   };
   return (
-    <div className="col-4">
+    <div className={`col-xs-12 col-sm-4  ${style.cardcontainer}`}>
       <div className={style.card}>
         <img alt="movie" src={imgurl} />
         <h5>{title}</h5>

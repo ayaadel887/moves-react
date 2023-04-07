@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
+import "./styles.css";
 // import required modules
-import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper";
 
 import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./Home.module.css";
 import CustomCard from "../customcard/CustomCard";
+import useResizeScreen from "../../ResizeScreen";
 
 export default function Home() {
   let { trendingMoves } = useContext(MediaContext);
@@ -21,7 +22,8 @@ export default function Home() {
   let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
 
-  console.log({ trendingMoves });
+  const { width } = useResizeScreen();
+  console.log({ width });
   return (
     <>
       <div className="row">
@@ -36,24 +38,13 @@ export default function Home() {
           </div>
         </div>
         <Swiper
-          slidesPerView={1}
-          centeredSlides={false}
-          slidesPerGroupSkip={1}
-          grabCursor={true}
-          keyboard={{
-            enabled: true,
-          }}
-          breakpoints={{
-            769: {
-              slidesPerView: 3,
-              slidesPerGroup: 3,
-            },
-          }}
-          navigation={true}
+          slidesPerView={width > 600 ? 3 : 1}
+          spaceBetween={30}
           pagination={{
             clickable: true,
           }}
-          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          navigation={true}
+          modules={[Pagination, Navigation]}
           className="mySwiper"
         >
           {trendingMoves.map((move) => (
@@ -83,24 +74,12 @@ export default function Home() {
           </div>
         </div>
         <Swiper
-          slidesPerView={1}
-          centeredSlides={true}
-          slidesPerGroupSkip={1}
-          grabCursor={true}
-          keyboard={{
-            enabled: true,
-          }}
-          breakpoints={{
-            769: {
-              slidesPerView: 3,
-              slidesPerGroup: 3,
-            },
-          }}
-          navigation={true}
+          slidesPerView={width > 600 ? 3 : 1}
+          spaceBetween={30}
           pagination={{
             clickable: true,
           }}
-          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          modules={[Pagination]}
           className="mySwiper"
         >
           {trendingTVShowes.map((tv) => (
@@ -129,24 +108,12 @@ export default function Home() {
           </div>
         </div>
         <Swiper
-          slidesPerView={1}
-          centeredSlides={false}
-          slidesPerGroupSkip={1}
-          grabCursor={true}
-          keyboard={{
-            enabled: true,
-          }}
-          breakpoints={{
-            769: {
-              slidesPerView: 3,
-              slidesPerGroup: 3,
-            },
-          }}
-          navigation={true}
+          slidesPerView={width > 600 ? 3 : 1}
+          spaceBetween={30}
           pagination={{
             clickable: true,
           }}
-          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          modules={[Pagination]}
           className="mySwiper"
         >
           {trendingPeople.map((person) => (

@@ -75,12 +75,6 @@ export default function Login({ getuserData }) {
         <div className={style.cardcontainer}>
           <h1 className={style.formtitle}>Sign In</h1>
 
-          {errorList.map((er, index) => (
-            <div key={index} className="alert alert-danger p-1">
-              {er.message}
-            </div>
-          ))}
-
           <form onSubmit={submitFormData}>
             <div>
               <input
@@ -90,6 +84,15 @@ export default function Login({ getuserData }) {
                 name="email"
                 placeholder=" Email"
               />
+              {errorList.map((er, index) => {
+                if (er.message.includes("email")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      Please enter a valid Email
+                    </p>
+                  );
+                }
+              })}
             </div>
             <div>
               <input
@@ -99,6 +102,15 @@ export default function Login({ getuserData }) {
                 name="Password"
                 placeholder=" Password"
               />
+              {errorList.map((er, index) => {
+                if (er.message.includes("Password")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      Please enter a valid Password
+                    </p>
+                  );
+                }
+              })}
             </div>
             <button className={style.button} type="submit">
               {loading ? (

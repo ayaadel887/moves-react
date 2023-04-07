@@ -7,7 +7,9 @@ const Footer = () => {
     <>
       <footer className="text-center ">
         <div className="p-3">
-          <p className="mr-5">© 2023 Copyright - aya adel</p>
+          <p className="mr-5">
+            Copy Right 2023 © By Aya Adel All Rights Reserved
+          </p>
           <FaFacebook
             /* redirect to external URL */
             onClick={() => window.location.replace("https://www.facebook.com")}

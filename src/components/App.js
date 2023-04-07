@@ -13,7 +13,9 @@ import People from "../Pages//People/People";
 import Register from "../Pages/Register/Register";
 import Tvshowes from "../Pages/Tvshowes/Tvshowes";
 import Login from "../Pages/Login/Login";
-import ProtectedRout from "./protectedRoutes/protectedRout";
+import ProtectedRout, {
+  NonProtectedRout,
+} from "./protectedRoutes/protectedRout";
 import Details from "./Details/Details";
 import { MediaContextProvider } from "./mediaContext/MediaContext";
 import Footer from "./Footer/Footer";
@@ -57,18 +59,23 @@ function App() {
               <Route path="people" element={<People />} />
               <Route path="details" element={<Details />} />
               <Route path="Tvshowes" element={<Tvshowes />} />
-              <Route path="Register" element={<Register />} />
             </Route>
-            <Route path="login" element={<Login getuserData={getuserData} />} />
-            <Route path="*" element={<Notfound />} />
+            <Route element={<NonProtectedRout loginData={loginData} />}>
+              <Route
+                path="login"
+                element={<Login getuserData={getuserData} />}
+              />
+              <Route path="Register" element={<Register />} />
+              <Route path="*" element={<Notfound />} />
+            </Route>
           </Routes>
         </MediaContextProvider>
 
         {/* <Routes>
-        <Route element={<ProtectedRout loginData={loginData} />}>
-              <Route path="Register" element={<Register />} />
-              </Route>
-  </Routes> */}
+         <Route element={<ProtectedRout loginData={loginData} />}>
+            <Route path="Register" element={<Register />} />
+          </Route>
+        </Routes> */}
       </div>
       <Footer />
     </>

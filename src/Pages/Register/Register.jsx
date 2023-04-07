@@ -38,28 +38,26 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     seterrMassage("hallo email is requird,could you write it again ,please");
-    let validationResulte = HandelValidateForm();
 
-    if (validationResulte.error) {
-      setErrorList(validationResulte.error.details);
+    if (HandelValidateForm()) {
       setLoading(false);
-    } else {
-      console.log("3dina mn el validation");
       HandelGOTOLOgin();
-
-      //let { data } = await axios.post(
-      //     "https://routeegypt.herokuapp.com/signup",
-      //     user
-      //   );
-      //   if (data.message == "success") {
-      //     alert("go login");
-      //   } else {
-      //     seterrMassage(data.message);
-      //   }
+    } else {
+      setLoading(false);
     }
+
+    //let { data } = await axios.post(
+    //     "https://routeegypt.herokuapp.com/signup",
+    //     user
+    //   );
+    //   if (data.message == "success") {
+    //     alert("go login");
+    //   } else {
+    //     seterrMassage(data.message);
+    //   }
   };
   //-------------code el bashmohandesa btb3t -----------------------------------
-  //el user redistration data-------------------------------
+  //el user Registeration data-------------------------------
   //-ll api be post --------------------------
   // let submitFormData = async (e) => {
   //   e.preventDefault();
@@ -100,90 +98,138 @@ export default function Register() {
     const schemaVarName = Joi.object({
       first_name: Joi.string().alphanum().required().min(3).max(10),
       Last_name: Joi.string().alphanum().required().min(3).max(10),
-      age: Joi.number().min(20).max(80).required(),
+      age: Joi.number().min(16).max(80).required(),
       email: Joi.string()
         .required()
         .email({ tlds: { allow: ["com", "net"] } }),
       Password: Joi.string().required().pattern(new RegExp("^[a-z][0-9]{3}$")),
     });
-    return schemaVarName.validate(user, { abortEarly: false });
+
+    let validationResulte = schemaVarName.validate(user, { abortEarly: false });
+    if (validationResulte.error) {
+      setErrorList(validationResulte.error.details);
+      return false;
+    } else {
+      return true;
+    }
   };
   return (
     <>
-      <div className="w-75 m-outo">
-        <h1 className="my-3">Registration Form</h1>
+      <div className={style.container}>
+        <div className={style.cardcontainer}>
+          <h1 className={style.formtitle}>Registration Form</h1>
 
-        {errorList.map((er, index) => (
-          <div key={index} className="alert alert-danger p-1">
-            {er.message}
-          </div>
-        ))}
-        {errMassage.flag ? (
-          <div className="alert alert-danger p-1">{errMassage.massage}</div>
-        ) : (
-          ""
-        )}
-        <form onSubmit={submitFormData}>
-          <div className="inputgroup my-2">
-            <label htmlFor="fist_name">First name:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="text"
-              className="form-control"
-              name="first_name"
-            />
-            {/*on change mash bt update nafsaha 8er lw user da5al 7arf aw rakam gded 
+          {errMassage.flag ? (
+            <div className="alert alert-danger p-1">{errMassage.massage}</div>
+          ) : (
+            ""
+          )}
+          <form onSubmit={submitFormData}>
+            <div className="inputgroup my-2">
+              <input
+                onChange={handelGetFormData}
+                typeof="text"
+                className={style.forminput}
+                name="first_name"
+                placeholder=" First name"
+              />
+              {/* #on change mash bt update nafsaha 8er lw user da5al 7arf aw rakam gded 
             bs el onmove htt8er lw das arrow upp /arrow dawen */}
-          </div>
-          <div className="inputgroup my-2">
-            <label htmlFor="Last_name">Last name:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="text"
-              className="form-control"
-              name="Last_name"
-            />
-          </div>
-          <div className="inputgroup my-2">
-            <label htmlFor="age">age:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="text"
-              className="form-control"
-              name="age"
-            />
-          </div>
-          <div className="inputgroup my-2">
-            <label htmlFor="email">Email:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="text"
-              className="form-control"
-              name="email"
-            />
-          </div>
-          <div className="inputgroup my-2">
-            <label htmlFor="Password">Password:</label>
-            <input
-              onChange={handelGetFormData}
-              typeof="Password"
-              className="form-control"
-              name="Password"
-            />
-          </div>
-          <button
-            className={`btn  float-end ${style.button}`}
-            style={{ backgroundColor: "#ffe7cc" }}
-            type="submit"
-          >
-            {loading ? (
-              <div className="spinner-border text-primary" role="status"></div>
-            ) : (
-              "Register"
-            )}
-          </button>
-          <div className="clearfix">{/*msh sha8ala */}</div>
-        </form>
+              {errorList.map((er, index) => {
+                if (er.message.includes("first_name")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      Please enter a valid name
+                    </p>
+                  );
+                }
+              })}
+            </div>
+            <div className="inputgroup my-2">
+              <input
+                onChange={handelGetFormData}
+                typeof="text"
+                className={style.forminput}
+                name="Last_name"
+                placeholder="Last name"
+              />
+              {errorList.map((er, index) => {
+                if (er.message.includes("Last_name")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      Please enter a valid name
+                    </p>
+                  );
+                }
+              })}
+            </div>
+            <div className="inputgroup my-2">
+              <input
+                onChange={handelGetFormData}
+                typeof="text"
+                className={style.forminput}
+                name="age"
+                placeholder="Age"
+              />
+              {errorList.map((er, index) => {
+                if (er.message.includes("age")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      please , Enter a valid Age
+                    </p>
+                  );
+                }
+              })}
+            </div>
+            <div className="inputgroup my-2">
+              <input
+                onChange={handelGetFormData}
+                typeof="text"
+                className={style.forminput}
+                name="email"
+                placeholder="Email"
+              />
+              {errorList.map((er, index) => {
+                if (er.message.includes("email")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      Please enter a valid Email
+                    </p>
+                  );
+                }
+              })}
+            </div>
+            <div className="inputgroup my-2">
+              <input
+                onChange={handelGetFormData}
+                typeof="Password"
+                className={style.forminput}
+                name="Password"
+                placeholder="Password"
+              />
+              {errorList.map((er, index) => {
+                if (er.message.includes("Password")) {
+                  return (
+                    <p key={index} className={style.errorAlert}>
+                      Please enter a valid Password
+                    </p>
+                  );
+                }
+              })}
+            </div>
+
+            <button className={style.button} type="submit">
+              {loading ? (
+                <div
+                  className="spinner-border text-primary"
+                  role="status"
+                ></div>
+              ) : (
+                "Register"
+              )}
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );
