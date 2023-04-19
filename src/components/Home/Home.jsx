@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,19 +11,52 @@ import "./styles.css";
 // import required modules
 import { Navigation, Pagination } from "swiper";
 
-import { MediaContext } from "../mediaContext/MediaContext";
+// import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./Home.module.css";
 import CustomCard from "../customcard/CustomCard";
 import useResizeScreen from "../../ResizeScreen";
+import useMovesQuery from "../../Hooks/useMovesApi";
+import usePeopleApi from "../../Hooks/usePeopleApi";
+import useTVshowsApi from "../../Hooks/useTVshowsApi";
+import { Loading } from "../Loadding/Loading";
+import Error from "../Error/Error";
 
 export default function Home() {
-  let { trendingMoves } = useContext(MediaContext);
-  let { trendingTVShowes } = useContext(MediaContext);
-  let { trendingPeople } = useContext(MediaContext);
+  // let { trendingMoves } = useContext(MediaContext);
+  // let { trendingTVShowes } = useContext(MediaContext);
+  // let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
-
   const { width } = useResizeScreen();
-  console.log({ width });
+
+  const {
+    data: moves,
+    isLoading: isMovesLoading,
+    error: movesError,
+    refetch: refetchMoves,
+  } = useMovesQuery();
+
+  const {
+    data: tVshows,
+    isLoading: isTVshowsLoading,
+    error: TVshowsError,
+    refetch: refetchtVshows,
+  } = useTVshowsApi();
+  const {
+    data: people,
+    isLoading: isPeopleLoading,
+    error: PeopleError,
+    refetch: refetchPeople,
+  } = usePeopleApi();
+  if (isMovesLoading || isTVshowsLoading || isPeopleLoading) {
+    return <Loading />;
+  }
+  if (movesError || TVshowsError || PeopleError) {
+    <Error
+      refetchMoves={refetchMoves}
+      refetchtVshows={refetchtVshows}
+      refetchPeople={refetchPeople}
+    />;
+  }
   return (
     <>
       <div className="row">
@@ -47,7 +80,7 @@ export default function Home() {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-          {trendingMoves.map((move) => (
+          {moves?.results.map((move) => (
             <SwiperSlide>
               <CustomCard
                 key={move.id}
@@ -82,7 +115,7 @@ export default function Home() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {trendingTVShowes.map((tv) => (
+          {tVshows?.results.map((tv) => (
             <SwiperSlide>
               <CustomCard
                 key={tv.id}
@@ -116,7 +149,7 @@ export default function Home() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {trendingPeople.map((person) => (
+          {people?.results.map((person) => (
             <SwiperSlide>
               <div key={person.id} className="col my-3 mx-2">
                 <div>

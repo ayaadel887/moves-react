@@ -39,7 +39,7 @@
 }
 .errorAlert {
   color: red;
-  text-align: start;
+  text-align: center;
   /* padding-left: 50px; */
 }
 .button {

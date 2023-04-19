@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-// import React, { Fragment, useState, useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
+
 //-----------myFiles--------------------
 import About from "./About/About";
 import Home from "./Home/Home";
@@ -19,6 +20,8 @@ import ProtectedRout, {
 import Details from "./Details/Details";
 import { MediaContextProvider } from "./mediaContext/MediaContext";
 import Footer from "./Footer/Footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PageQuiry from "../PageQuiry";
 
 //---------Css-------------------------------
 function App() {
@@ -28,12 +31,10 @@ function App() {
     let token = localStorage.getItem("token");
     let decoded = jwtDecode(token);
     setloginData(decoded);
-    console.log(loginData);
   };
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getuserData();
-      console.log(loginData, "loginData from app /useeffect");
     }
   }, []);
 
@@ -45,39 +46,45 @@ function App() {
     setloginData(null);
     navigate("/login");
   };
+  //--------------------------------
+
+  const queryClient = new QueryClient();
   return (
     <>
-      <Navbar handelLogOut={handelLogOut} loginData={loginData} />
-      <div className="container">
-        <MediaContextProvider>
-          <Routes>
-            <Route element={<ProtectedRout loginData={loginData} />}>
-              <Route path="/" element={<Home />} />
-              <Route path="home" element={<Home />} />
-              <Route path="moves" element={<Moves />} />
-              <Route path="about" element={<About />} />
-              <Route path="people" element={<People />} />
-              <Route path="details" element={<Details />} />
-              <Route path="Tvshowes" element={<Tvshowes />} />
-            </Route>
-            <Route element={<NonProtectedRout loginData={loginData} />}>
-              <Route
-                path="login"
-                element={<Login getuserData={getuserData} />}
-              />
-              <Route path="Register" element={<Register />} />
-              <Route path="*" element={<Notfound />} />
-            </Route>
-          </Routes>
-        </MediaContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <Navbar handelLogOut={handelLogOut} loginData={loginData} />
+        <div className="container">
+          <MediaContextProvider>
+            <Routes>
+              <Route element={<ProtectedRout loginData={loginData} />}>
+                <Route path="/" element={<Home />} />
+                <Route path="home" element={<Home />} />
+                <Route path="moves" element={<Moves />} />
+                <Route path="about" element={<About />} />
+                <Route path="people" element={<People />} />
+                <Route path="details" element={<Details />} />
+                <Route path="Tvshowes" element={<Tvshowes />} />
+                <Route path="pagequiry" element={<PageQuiry />} />
+              </Route>
+              <Route element={<NonProtectedRout loginData={loginData} />}>
+                <Route
+                  path="login"
+                  element={<Login getuserData={getuserData} />}
+                />
+                <Route path="Register" element={<Register />} />
+                <Route path="*" element={<Notfound />} />
+              </Route>
+            </Routes>
+          </MediaContextProvider>
 
-        {/* <Routes>
+          {/* <Routes>
          <Route element={<ProtectedRout loginData={loginData} />}>
             <Route path="Register" element={<Register />} />
           </Route>
         </Routes> */}
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </QueryClientProvider>
     </>
   );
 }

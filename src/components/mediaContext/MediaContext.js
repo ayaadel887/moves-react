@@ -21,7 +21,6 @@ export let MediaContextProvider = (props) => {
   };
 
   useEffect(() => {
-    console.log(props, "hi from contxt");
     handelGetTrendingItems("movie", settrendingMoves);
     handelGetTrendingItems("tv", settrendingTVShowes);
     handelGetTrendingItems("person", settrendingPeople);
@@ -31,7 +30,6 @@ export let MediaContextProvider = (props) => {
       value={{ trendingMoves, trendingTVShowes, trendingPeople }}
     >
       {props.children}
-      {console.log(props.children, "hi from contxt")}
     </MediaContext.Provider>
   );
 };

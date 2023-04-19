@@ -22,28 +22,6 @@ const Details = () => {
   }, []);
   return (
     <>
-      {/* 
-       
-#     #  عندي مشكلتين هنا لما باجي اجيب نوع الفيلم من ال   الي فيها نوع الفيلم بيعمل اررور  ولما اسم الفيلم بيكون كبير سطرين الدنيا بتضدرب
-#حاجه تانيه  عايزه ابعت لل سي اس اس عنوان الصوره عشان يعملها background  كيف هذا
-#             فكرت يوم 4-2-2023
-#ان ممكن اعمل الباكجروند inline style fe el div nfsaha
- style={{
-          backgroundImage: `url(${hcbgImage})`,
-          backgroundSize: "cover",
-          height: "100vh",
-          color: "#f5f5f5"
-        }}
-# <p className="type">
-#              lorem,fgtrv
-#              {/* <h4>
-#                {detailsData.genres[0].name},{detailsData.genres[1].name},
-#                {detailsData.genres[2].name}
-#              </h4> *--/}
-#            </p>
-#          </div>
-#        
-#   */}
       <div className={style.movie_card} id="ave">
         <div className={style.info_section}>
           <div className={style.movie_header}>

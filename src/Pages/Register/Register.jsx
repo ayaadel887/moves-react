@@ -45,39 +45,10 @@ export default function Register() {
     } else {
       setLoading(false);
     }
-
-    //let { data } = await axios.post(
-    //     "https://routeegypt.herokuapp.com/signup",
-    //     user
-    //   );
-    //   if (data.message == "success") {
-    //     alert("go login");
-    //   } else {
-    //     seterrMassage(data.message);
-    //   }
   };
-  //-------------code el bashmohandesa btb3t -----------------------------------
-  //el user Registeration data-------------------------------
-  //-ll api be post --------------------------
-  // let submitFormData = async (e) => {
-  //   e.preventDefault();
-  //   let { data } = await axios.post(
-  //     "https://routeegypt.herokuapp.com/signup",
-  //     user
-  //   );
-  //   if (data.message == "success") {
-  //     alert("go login");
-  //   } else {
-  //     seterrMassage(data.message);
-  //   }
-  //   console.log(data, "iam data");
-  //   console.log(e, "hi iam event");
-  // };
-  //-----------------handel lGetFormData-----------------------------------
-  //-gbt el data el user da5alha we 7ateta fe state bta3ty
+
   const handelGetFormData = (e) => {
-    // let userCopy=user;//keda el atnen beshawro  3la nfs el makan fe el memory (shalow copy)
-    let userCopy = { ...user }; // deep copy b2a 3ansy makan geded
+    let userCopy = { ...user }; // deep copy b2a 3amly makan (متغير ب address) geded
     userCopy[e.target.name] = e.target.value;
     setuser(userCopy);
   };

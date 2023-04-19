@@ -7,12 +7,7 @@ const CustomCard = ({ title, description, imgurl, button, id }) => {
   let navigate = useNavigate();
 
   let moveToDetails = (id) => {
-    console.log(id, "id");
     navigate({ pathname: "/details", search: `?id=${id}` });
-    //لو  عايزه تنافيجيت لحاجه ومعاها باراميتر
-    // ادي النافيجيت
-    // اوبجيكتobject
-    //object take two things
   };
   return (
     <div className={`col-xs-12 col-sm-4  ${style.cardcontainer}`}>
