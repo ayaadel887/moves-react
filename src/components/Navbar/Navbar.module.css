@@ -4,20 +4,26 @@ li {
 .Navbar {
   display: flex;
   background-color: #182029;
+  padding-inline: 113px;
 }
-.divfloxosa {
+.menu {
+  height: 10vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 7px 0 7px 0;
 }
 
 .navlogo {
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 900;
+  font-size: 30px;
   color: #fff9ec;
   text-decoration: none;
-  margin-left: 10px;
+  cursor: pointer;
+}
+.navlogo span {
+  color: #f8633b;
 }
 .ulLinks {
   width: 40%;
@@ -37,9 +43,9 @@ li {
 }
 .navlink {
   color: #fff9ec;
-  font-size: 16px;
-  text-decoration: none;
+  font-size: 18px;
   font-weight: 700;
+  text-decoration: none;
   position: relative;
   opacity: 0.9;
   text-align: center;
@@ -56,16 +62,26 @@ li {
 }
 
 .active {
-  color: #fff9ec;
+  color: #f8633b;
 }
-/* isPending ? style.pending : isActive ? style.active : "" */
+.logout {
+  width: 80px;
+  height: 45px;
+  border: 1px solid #f8633b;
+  border-radius: 6px;
+  background-color: #fff9ec;
+  color: #f8633b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 @media (max-width: 700px) {
-  .divfloxosa {
+  .Navbar {
+    margin-bottom: 70px;
+  }
+  .menu {
     flex-direction: column;
     justify-content: flex-start;
-  }
-  .Navbar {
-    margin-bottom: 170px;
   }
   .ulLinks {
     width: 100%;
@@ -74,12 +90,13 @@ li {
     align-items: center;
     margin-top: 12px;
     margin-bottom: 12px;
+    background-color: #182029;
   }
   .ulLinks li {
     margin-bottom: 15px;
   }
   .burgericon {
-    display: block;
+    display: inline;
     font-size: 26px;
     position: absolute;
     right: 10px;
@@ -90,5 +107,15 @@ li {
   }
   .loginoutbox {
     width: 100%;
+  }
+  .navlogo {
+    position: absolute;
+    left: 15px;
+    top: 0px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .logout {
+    margin-bottom: 30px;
   }
 }

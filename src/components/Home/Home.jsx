@@ -81,9 +81,8 @@ export default function Home() {
           className="mySwiper"
         >
           {moves?.results.map((move) => (
-            <SwiperSlide>
+            <SwiperSlide key={move.id}>
               <CustomCard
-                key={move.id}
                 title={move.title}
                 description={move.overview}
                 imgurl={baseIMGEURL + move.poster_path}
@@ -112,13 +111,13 @@ export default function Home() {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
+          navigation={true}
+          modules={[Pagination, Navigation]}
           className="mySwiper"
         >
           {tVshows?.results.map((tv) => (
-            <SwiperSlide>
+            <SwiperSlide key={tv.id}>
               <CustomCard
-                key={tv.id}
                 title={tv.name}
                 description={tv.overview}
                 imgurl={baseIMGEURL + tv.poster_path}
@@ -146,12 +145,13 @@ export default function Home() {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
+          navigation={true}
+          modules={[Pagination, Navigation]}
           className="mySwiper"
         >
           {people?.results.map((person) => (
-            <SwiperSlide>
-              <div key={person.id} className="col my-3 mx-2">
+            <SwiperSlide key={person.id}>
+              <div className="col my-3 mx-2">
                 <div>
                   <img
                     className="w-100"

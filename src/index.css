@@ -1,14 +1,14 @@
 body {
   background: #0c141d;
-  color: white;
+  color: #fff9ec;
   font-family: "segoe ui light";
 }
 a {
   text-decoration: none;
-  color: #646c94;
+  color: #fff9ec;
 }
 a:hover {
-  color: #fff9ec;
+  color: #f8633b;
 }
 
 .secondColor {
@@ -30,4 +30,7 @@ a:hover {
 .brdr {
   height: 1px;
   border: 1px solid #a8a8a83d;
+}
+.webview {
+  height: 75.4vh;
 }

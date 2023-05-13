@@ -24,6 +24,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import PageQuiry from "../PageQuiry";
 
 //---------Css-------------------------------
+
 function App() {
   let [loginData, setloginData] = useState(null);
   let navigate = useNavigate();
@@ -66,12 +67,24 @@ function App() {
                 <Route path="Tvshowes" element={<Tvshowes />} />
                 <Route path="pagequiry" element={<PageQuiry />} />
               </Route>
+
               <Route element={<NonProtectedRout loginData={loginData} />}>
                 <Route
                   path="login"
-                  element={<Login getuserData={getuserData} />}
+                  element={
+                    <div className="webview">
+                      <Login getuserData={getuserData} />
+                    </div>
+                  }
                 />
-                <Route path="Register" element={<Register />} />
+                <Route
+                  path="Register"
+                  element={
+                    <div className="webview">
+                      <Register />
+                    </div>
+                  }
+                />
                 <Route path="*" element={<Notfound />} />
               </Route>
             </Routes>
