@@ -1,8 +1,9 @@
 import React from "react";
+import style from "./About.module.css";
 const About = () => {
   return (
     <>
-      <div className="container w-50 mt-5">
+      <div className={`container w-50 mt-5 ${style.about}`}>
         At noxe, we want to entertain the world.Lorem ipsum dolor sit amet,
         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
