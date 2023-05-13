@@ -20,14 +20,16 @@ img {
   box-shadow: 1px 1px 2px #888888;
 }
 .card h5 {
+  height: 50px;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
+  color: #f5f5f5;
 }
 .DetailsBtn {
   width: 160px;
   height: 55px;
-  background-color: #5c74da;
+  background-color: #f8633b;
   color: aliceblue;
   font-weight: 700;
   font-size: 20px;
@@ -57,11 +59,12 @@ img {
 .description {
   font-size: 16px;
   text-align: center;
+  color: #949cb0;
 }
 .desc {
   height: 70px;
   padding-inline: 4px;
-  margin: 10px 0 20px;
+  margin: 0px 0 20px;
 }
 @media screen and (max-width: 600px) {
   .card {
