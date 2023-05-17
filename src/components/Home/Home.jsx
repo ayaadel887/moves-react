@@ -105,6 +105,7 @@ export default function Home() {
             <div className={style.brdr}></div>
           </div>
         </div>
+
         <Swiper
           slidesPerView={width > 600 ? 3 : 1}
           spaceBetween={30}
@@ -130,7 +131,7 @@ export default function Home() {
       </div>
 
       <div className="row">
-        <div className="col-md d-flex align-items-center">
+        {/* <div className="col-md d-flex align-items-center">
           <div className="w-100 ">
             <div className={`w-25 ${style.brdr} mb-3`}></div>
             <h2>Trending </h2>
@@ -138,7 +139,7 @@ export default function Home() {
             <p className="secondColor mb-3">Most Trending people by day</p>
             <div className={style.brdr}></div>
           </div>
-        </div>
+        </div> */}
         <Swiper
           slidesPerView={width > 600 ? 3 : 1}
           spaceBetween={30}

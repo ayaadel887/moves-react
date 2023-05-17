@@ -46,6 +46,7 @@ function App() {
     //2-set login data state whith null
     setloginData(null);
     navigate("/login");
+    console.log("hi log out noe");
   };
   //--------------------------------
 

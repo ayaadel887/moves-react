@@ -68,6 +68,46 @@ export default function Navbar({ loginData, handelLogOut }) {
                     Movies
                   </NavLink>
                 </li>
+                {!loginData ? (
+                  <>
+                    <li className={style.navlink}>
+                      <NavLink
+                        to="/Register"
+                        className={({ isActive, isPending }) =>
+                          isPending
+                            ? style.pending
+                            : isActive
+                            ? style.active
+                            : ""
+                        }
+                      >
+                        Register
+                      </NavLink>
+                    </li>
+                    <li className={style.navlink}>
+                      <NavLink
+                        to="/login"
+                        className={({ isActive, isPending }) =>
+                          isPending
+                            ? style.pending
+                            : isActive
+                            ? style.active
+                            : ""
+                        }
+                      >
+                        Login
+                      </NavLink>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className={style.navlink}>
+                      <button onClick={handelLogOut} className={style.logout}>
+                        Logout
+                      </button>
+                    </li>
+                  </>
+                )}
               </ul>
 
               <GiHamburgerMenu
@@ -78,45 +118,6 @@ export default function Navbar({ loginData, handelLogOut }) {
           ) : (
             " "
           )}
-          <div className={style.loginoutbox} id="navbarColor01">
-            <ul className={click ? `${style.ulLinks}` : `${style.desapear}`}>
-              {!loginData ? (
-                <>
-                  <li className={style.navlink}>
-                    <NavLink
-                      to="/Register"
-                      className={({ isActive, isPending }) =>
-                        isPending ? style.pending : isActive ? style.active : ""
-                      }
-                    >
-                      Register
-                    </NavLink>
-                  </li>
-                  <li className={style.navlink}>
-                    <NavLink
-                      to="/login"
-                      className={({ isActive, isPending }) =>
-                        isPending ? style.pending : isActive ? style.active : ""
-                      }
-                    >
-                      Login
-                    </NavLink>
-                  </li>
-                </>
-              ) : (
-                <>
-                  {/* <li className={style.welcom}>
-                    {" " + loginData.first_name + " "}
-                  </li> */}
-                  <li>
-                    <button onClick={handelLogOut} className={style.logout}>
-                      Logout
-                    </button>
-                  </li>
-                </>
-              )}
-            </ul>
-          </div>
         </div>
       </nav>
     </>

@@ -7,7 +7,6 @@ li {
   padding-inline: 113px;
 }
 .menu {
-  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,23 +76,28 @@ li {
 
 @media (max-width: 700px) {
   .Navbar {
-    margin-bottom: 70px;
+    display: block;
+    margin-bottom: 60px;
   }
   .menu {
     flex-direction: column;
     justify-content: flex-start;
   }
   .ulLinks {
-    width: 100%;
+    width: 400px;
+    border: 3px solid #2126ad;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 12px;
-    margin-bottom: 12px;
     background-color: #182029;
   }
   .ulLinks li {
+    width: 400px;
     margin-bottom: 15px;
+  }
+  .ulLinks li:hover {
+    background-color: red;
   }
   .burgericon {
     display: inline;
@@ -105,17 +109,12 @@ li {
   .desapear {
     display: none;
   }
-  .loginoutbox {
-    width: 100%;
-  }
+
   .navlogo {
     position: absolute;
     left: 15px;
     top: 0px;
     font-weight: 700;
     font-size: 20px;
-  }
-  .logout {
-    margin-bottom: 30px;
   }
 }

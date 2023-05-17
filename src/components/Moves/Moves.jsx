@@ -21,6 +21,7 @@ export default function Moves() {
             <div className={style.brdr}></div>
           </div>
         </div>
+
         {trendingMoves.map((move) => (
           <CustomCard
             key={move.id}
