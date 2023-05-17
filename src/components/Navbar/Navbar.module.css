@@ -54,12 +54,6 @@ li {
   display: none;
 }
 
-.loginoutbox {
-  width: 33%;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .active {
   color: #f8633b;
 }
@@ -79,13 +73,13 @@ li {
     display: block;
     margin-bottom: 60px;
   }
+
   .menu {
     flex-direction: column;
     justify-content: flex-start;
   }
   .ulLinks {
     width: 400px;
-    border: 3px solid #2126ad;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -97,23 +91,23 @@ li {
     margin-bottom: 15px;
   }
   .ulLinks li:hover {
-    background-color: red;
+    background-color: #11181f;
   }
   .burgericon {
     display: inline;
     font-size: 26px;
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 5;
   }
   .desapear {
     display: none;
   }
 
   .navlogo {
-    position: absolute;
-    left: 15px;
-    top: 0px;
+    position: relative;
+    left: -171px;
+    top: 3px;
     font-weight: 700;
     font-size: 20px;
   }
