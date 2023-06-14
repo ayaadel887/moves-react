@@ -30,12 +30,12 @@ export default function Navbar({ loginData, handelLogOut }) {
                 </li>
                 <li className={style.navlink}>
                   <NavLink
-                    to="/About"
+                    to="moves"
                     className={({ isActive, isPending }) =>
                       isPending ? style.pending : isActive ? style.active : ""
                     }
                   >
-                    About
+                    Movies
                   </NavLink>
                 </li>
                 <li className={style.navlink}>
@@ -60,12 +60,12 @@ export default function Navbar({ loginData, handelLogOut }) {
                 </li>
                 <li className={style.navlink}>
                   <NavLink
-                    to="moves"
+                    to="/About"
                     className={({ isActive, isPending }) =>
                       isPending ? style.pending : isActive ? style.active : ""
                     }
                   >
-                    Movies
+                    About
                   </NavLink>
                 </li>
                 {!loginData ? (
