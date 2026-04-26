@@ -16,23 +16,29 @@
   margin: auto;
   width: 500px;
 }
+/* ...existing code... */
 .formtitle {
   margin-top: 10px;
   color: #fff9ec;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 1px;
 }
+/* ...existing code... */
 .forminput {
-  height: 40px;
-  width: 80%;
-  background-color: rgba(255, 255, 255, 0.07);
-  border-radius: 3px;
-  /* padding: 0 10px; */
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 300;
-  color-scheme: dark;
+  height: 44px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 6px;
+  padding: 0 14px;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 ::placeholder {
   color: #e5e5e5;
@@ -42,21 +48,31 @@
   text-align: center;
   /* padding-left: 50px; */
 }
+/* ...existing code... */
 .button {
-  width: 300px;
+  width: 90%;
   padding: 15px 0;
-  margin-top: 30px;
+  margin-top: 32px;
   margin-bottom: 20px;
   color: #fff9ec;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 8px;
   border-style: none;
   cursor: pointer;
-  background-color: #5c74da;
-  box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+  background: linear-gradient(90deg, #5c74da 0%, #7b5cda 100%);
+  box-shadow: 0 4px 16px rgba(39, 174, 96, 0.1);
   color-scheme: inherit;
-  transition-duration: 0.4s;
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+.button:hover {
+  background: linear-gradient(90deg, #6078e2 0%, #a16ae8 100%) !important;
+  color: #fff9ec !important;
+  opacity: 1;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 24px rgba(39, 174, 96, 0.18);
 }
 
 .button:hover {

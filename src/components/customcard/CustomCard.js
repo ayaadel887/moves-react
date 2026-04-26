@@ -1,23 +1,19 @@
-import React from "react";
 import { BsArrowRightCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 import style from "./CustomCard.module.css";
-const CustomCard = ({ title, description, imgurl, button, id }) => {
+const CustomCard = ({ title, imgurl, button, id, isSwiper }) => {
   let navigate = useNavigate();
 
   let moveToDetails = (id) => {
     navigate({ pathname: "/details", search: `?id=${id}` });
   };
-  return (
-    <div className={`col-xs-12 col-sm-4  ${style.cardcontainer}`}>
-      <div className={style.card}>
-        <img alt="movie" src={imgurl} />
-        <h5>{title}</h5>
-        <div className={style.desc}>
-          <p className={style.description}>{description.substr(0, 100)} ...</p>
-        </div>
 
+  const cardContent = (
+    <div className={style.card}>
+      <img alt="movie" src={imgurl} />
+      <div className={style.overlay}>
+        <h5>{title}</h5>
         {button && (
           <button
             className={style.DetailsBtn}
@@ -28,6 +24,16 @@ const CustomCard = ({ title, description, imgurl, button, id }) => {
           </button>
         )}
       </div>
+    </div>
+  );
+
+  if (isSwiper) {
+    return <div className={style.cardcontainer}>{cardContent}</div>;
+  }
+
+  return (
+    <div className={`col-xs-12 col-sm-4 ${style.cardcontainer}`}>
+      {cardContent}
     </div>
   );
 };

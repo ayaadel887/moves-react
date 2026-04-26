@@ -1,17 +1,10 @@
 import React from "react";
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./styles.css";
-// import required modules
 import { Navigation, Pagination } from "swiper";
-
-// import { MediaContext } from "../mediaContext/MediaContext";
 import style from "./Home.module.css";
 import CustomCard from "../customcard/CustomCard";
 import useResizeScreen from "../../ResizeScreen";
@@ -22,9 +15,6 @@ import { Loading } from "../Loadding/Loading";
 import Error from "../Error/Error";
 
 export default function Home() {
-  // let { trendingMoves } = useContext(MediaContext);
-  // let { trendingTVShowes } = useContext(MediaContext);
-  // let { trendingPeople } = useContext(MediaContext);
   let baseIMGEURL = "https://image.tmdb.org/t/p/original";
   const { width } = useResizeScreen();
 
@@ -71,23 +61,26 @@ export default function Home() {
           </div>
         </div>
         <Swiper
-          slidesPerView={width > 600 ? 3 : 1}
-          spaceBetween={30}
+          slidesPerView={
+            width > 1200 ? 6 : width > 900 ? 4 : width > 600 ? 3 : 2
+          }
+          spaceBetween={16}
           pagination={{
             clickable: true,
           }}
           navigation={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
+          style={{ padding: "0 12px" }}
         >
           {moves?.results.map((move) => (
             <SwiperSlide key={move.id}>
               <CustomCard
                 title={move.title}
-                description={move.overview}
                 imgurl={baseIMGEURL + move.poster_path}
                 button={true}
                 id={move.id}
+                isSwiper={true}
               />
             </SwiperSlide>
           ))}
@@ -107,8 +100,10 @@ export default function Home() {
         </div>
 
         <Swiper
-          slidesPerView={width > 600 ? 3 : 1}
-          spaceBetween={30}
+          slidesPerView={
+            width > 1200 ? 6 : width > 900 ? 4 : width > 600 ? 3 : 2
+          }
+          spaceBetween={16}
           pagination={{
             clickable: true,
           }}
@@ -120,10 +115,10 @@ export default function Home() {
             <SwiperSlide key={tv.id}>
               <CustomCard
                 title={tv.name}
-                description={tv.overview}
                 imgurl={baseIMGEURL + tv.poster_path}
                 button={true}
                 id={tv.id}
+                isSwiper={true}
               />
             </SwiperSlide>
           ))}
@@ -131,18 +126,11 @@ export default function Home() {
       </div>
 
       <div className="row">
-        {/* <div className="col-md d-flex align-items-center">
-          <div className="w-100 ">
-            <div className={`w-25 ${style.brdr} mb-3`}></div>
-            <h2>Trending </h2>
-            <h2>people</h2>
-            <p className="secondColor mb-3">Most Trending people by day</p>
-            <div className={style.brdr}></div>
-          </div>
-        </div> */}
         <Swiper
-          slidesPerView={width > 600 ? 3 : 1}
-          spaceBetween={30}
+          slidesPerView={
+            width > 1200 ? 6 : width > 900 ? 4 : width > 600 ? 3 : 2
+          }
+          spaceBetween={16}
           pagination={{
             clickable: true,
           }}

@@ -87,14 +87,12 @@ export default function Register() {
   return (
     <>
       <div className={style.container}>
+        <div className={style["register-image"]} />
         <div className={style.cardcontainer}>
-          <h1 className={style.formtitle}>Registration Form</h1>
-
+          <h1 className={style.formtitle}>Create Account</h1>
           {errMassage.flag ? (
             <div className="alert alert-danger p-1">{errMassage.massage}</div>
-          ) : (
-            ""
-          )}
+          ) : null}
           <form onSubmit={submitFormData}>
             <div className="inputgroup my-2">
               <input
